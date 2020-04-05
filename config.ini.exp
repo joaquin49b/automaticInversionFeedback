@@ -1,0 +1,10 @@
+; config.ini.exp
+[COINBASE_PRO]
+API_KEY = 
+SECRET = 
+PASSPHRASE = 
+
+[COINBASE]
+API_KEY = 
+SECRET = 
+
