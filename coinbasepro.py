@@ -9,8 +9,8 @@ class CoinBasePro:
         self.auth_client = cbpro.AuthenticatedClient(
             config['API_KEY'], config['SECRET'], config['PASSPHRASE'])
 
-    def amount_badge(self, id):
-        amount = self.auth_client.get_account(id)
+    def amount_badge(self, id_badge):
+        amount = self.auth_client.get_account(id_badge)
         return float(amount['balance'])
 
     def total_amount(self):

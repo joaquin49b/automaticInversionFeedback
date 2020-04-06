@@ -112,5 +112,9 @@ dmypy.json
 
 # config
 config.ini
+token.pickle
+
+# Credentials Google API
+credentials_google.json
 
 # End of https://www.gitignore.io/api/python
