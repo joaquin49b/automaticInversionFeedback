@@ -14,3 +14,7 @@ class CoinBase:
             return float(account['native_balance']['amount'])
         except APIError as err:
             return err
+        except KeyError as err:
+            return err
+        except ValueError as err:
+            return err
