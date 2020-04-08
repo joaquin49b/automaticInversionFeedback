@@ -13,8 +13,8 @@ class CoinBase:
                 "0ed05157-8cee-501a-bd7e-4fe2aa8d62b8")
             return float(account['native_balance']['amount'])
         except APIError as err:
-            return err
+            raise err
         except KeyError as err:
-            return err
+            raise err
         except ValueError as err:
-            return err
+            raise err

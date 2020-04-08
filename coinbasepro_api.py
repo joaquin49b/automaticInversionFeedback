@@ -30,6 +30,7 @@ class CoinBasePro:
 
             return total
         except KeyError as err:
-            return err
+            raise err
         except ValueError as err:
-            return err
+            raise err
+
