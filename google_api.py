@@ -1,5 +1,6 @@
 import pickle
 import os.path
+import calendar
 from datetime import date
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -48,7 +49,13 @@ class GoogleApi:
         today = date.today()
         month = format(today.month + 1)
 
-        range_ = range_ + month
+        range_ = range_ + 'C' + month
         values = {"values": [[amount_calculate]]}
 
         self.update_sheet(spreadsheet_id, range_, values)
+
+        last_day_of_month = calendar.monthrange(today.year, today.month)[1]
+
+        if last_day_of_month == today.day:
+            month += 1
+            range_ = range_ + 'B' + month

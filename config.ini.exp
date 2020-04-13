@@ -1,10 +1,16 @@
-; config.ini.exp
+; config.ini
+; Version 1.0
 [COINBASE_PRO]
-API_KEY = 
-SECRET = 
-PASSPHRASE = 
+API_KEY =
+SECRET =
+PASSPHRASE =
+RANGE =
 
 [COINBASE]
-API_KEY = 
-SECRET = 
+API_KEY =
+SECRET =
+RANGE =
+INVERSION =
 
+[GOOGLE]
+SHEET =
