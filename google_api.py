@@ -8,6 +8,10 @@ from google.auth.transport.requests import Request
 
 
 class GoogleApi:
+
+    SCRIPT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
+    SETTINGS_FILEPATH = os.path.join(SCRIPT_DIRECTORY, "token.pickle")
+
     # If modifying these scopes, delete the file token.pickle.
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
@@ -17,8 +21,8 @@ class GoogleApi:
     def auth(self):
         creds = None
 
-        if os.path.exists('token.pickle'):
-            with open('token.pickle', 'rb') as token:
+        if os.path.exists(self.SETTINGS_FILEPATH):
+            with open(self.SETTINGS_FILEPATH, 'rb') as token:
                 creds = pickle.load(token)
 
         if not creds or not creds.valid:
@@ -29,7 +33,7 @@ class GoogleApi:
                     'credentials_google.json', self.SCOPES)
                 creds = flow.run_local_server(port=0)
 
-            with open('token.pickle', 'wb') as token:
+            with open(self.SETTINGS_FILEPATH, 'wb') as token:
                 pickle.dump(creds, token)
         self.service = build('sheets', 'v4', credentials=creds)
 

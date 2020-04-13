@@ -1,15 +1,18 @@
 # Version 1.0
 
 import configparser
+import os
 from coinbase.wallet.error import APIError
 
 from coinbasepro_api import CoinBasePro
 from coinbase_api import CoinBase
 from google_api import GoogleApi
 
+SCRIPT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
+SETTINGS_FILEPATH = os.path.join(SCRIPT_DIRECTORY, "config.ini")
 
 _CONFIG = configparser.ConfigParser()
-_CONFIG.read('config.ini')
+_CONFIG.read(SETTINGS_FILEPATH)
 
 
 def main():
