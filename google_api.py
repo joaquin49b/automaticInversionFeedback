@@ -56,7 +56,7 @@ class GoogleApi:
 
         last_day_of_month = calendar.monthrange(today.year, today.month)[1]
 
-        if last_day_of_month == last_day_of_month:
+        if last_day_of_month == today.day:
             month = format(today.month + 2)
             sheet_range = range_ + 'B' + month
 
