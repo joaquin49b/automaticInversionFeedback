@@ -49,13 +49,15 @@ class GoogleApi:
         today = date.today()
         month = format(today.month + 1)
 
-        range_ = range_ + 'C' + month
+        sheet_range = range_ + 'C' + month
         values = {"values": [[amount_calculate]]}
 
-        self.update_sheet(spreadsheet_id, range_, values)
+        self.update_sheet(spreadsheet_id, sheet_range, values)
 
         last_day_of_month = calendar.monthrange(today.year, today.month)[1]
 
-        if last_day_of_month == today.day:
-            month += 1
-            range_ = range_ + 'B' + month
+        if last_day_of_month == last_day_of_month:
+            month = format(today.month + 2)
+            sheet_range = range_ + 'B' + month
+
+            self.update_sheet(spreadsheet_id, sheet_range, values)
